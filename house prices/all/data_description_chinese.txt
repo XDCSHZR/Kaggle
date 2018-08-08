@@ -1,0 +1,573 @@
+NAME：AmesHousing.txt
+类型：人口
+SIZE：2930观测，82变量
+文章标题：艾姆斯爱荷华州：波士顿住房数据集的替代品
+
+描述性摘要：数据集包含Ames评估办公室提供的信息，用于计算2006年至2010年在Ames，IA销售的个别住宅物业的评估值。
+
+来源：
+艾姆斯，爱荷华州评估办公室
+
+可变描述：
+制表符用于分隔数据文件中的变量。该数据有82列，包括23个名义，23个序数，14个离散变量和20个连续变量（以及2个额外的观测标识符）。
+
+Order (Discrete)：观察编号
+
+PID (Nominal)：包裹识别号码 - 可与城市网站一起用于包裹审查。
+
+MS SubClass（Nominal）：标识销售中涉及的住宅类型。
+
+       020 1-STORY 1946＆NEWER ALL STYLES
+       030 1-STORY 1945＆OLDER
+       040 1-STORY W / FINISHED ATTIC ALL AGES
+       045 1-1 / 2故事 - 无人问津
+       050 1-1 / 2故事结束了所有年龄
+       060 2-STORY 1946＆NEWER
+       070 2-STORY 1945＆OLDER
+       075 2-1 / 2故事全部
+       080 SPLIT或MULV等级
+       085 SPLIT FOYER
+       090 DUPLEX  - 所有款式和年龄
+       120 1-STORY PUD（计划单位开发） -  1946年和NEWER
+       150 1-1 / 2故事PUD  - 所有时代
+       160 2-STORY PUD  -  1946＆NEWER
+       180 PUD  -  MULTILEVEL  -  INCL SPLIT LEV / FOYER
+       190 2家庭转换 - 所有风格和年龄
+
+MS Zoning（Nominal）：标识销售的一般分区分类。
+
+       A 农
+       C 商业级
+       FV 浮村住宅
+       I 工业
+       RH 住宅高密度
+       RL 住宅低密度
+       RP 住宅低密度公园
+       RM 住宅中密度
+
+Lot Frontage (Continuous)：街道的线性脚连接到财产
+
+Lot Area (Continuous)：地块尺寸，平方英尺
+
+Street (Nominal)：道路通行权的类型
+
+       Grvl 砾石
+       Pave 铺路
+       
+Alley (Nominal)：通往物业的胡同类型
+
+       Grvl 砾石
+       Pave 铺路
+       NA 没有胡同访问
+
+Lot Shape (Ordinal)：属性的一般形状
+
+       定期 注册
+       IR1 稍微不规则
+       IR2 中度不规则
+       IR3 不规则
+       
+Land Contour (Nominal)：物业的平整度
+
+       Lvl 近平/水平
+       Bnk Banked  - 从街道等级到建筑物的快速而显着的增长
+       HLS 山坡 - 从一侧到另一侧的显着坡度
+       Low 抑郁症
+
+Utilities（Ordinal）：可用的实用程序类型
+
+       AllPub 所有公用事业（E，G，W和S）
+       NoSewr 电力，燃气和水（化粪池）
+       NoSeWa 仅限电力和天然气
+       ELO 仅限电力
+
+Lot Config (Nominal)：批量配置
+
+       Inside 里面很多
+       Corner 角落很多
+       CulDSac 死路
+       FR2 正面两侧属性
+       FR3 正面三面
+
+Land Slope (Ordinal)：物业坡度
+
+       Gtl 温柔的斜坡
+       Mod 中等斜率
+       Sev 严重坡度
+
+Neighborhood (Nominal)：艾姆斯市区内的物理位置（可提供地图）
+
+       Blmngtn 布卢明顿高地
+       Blueste 须芒草
+       BrDale Briardale
+       BrkSide 布鲁克赛德
+       ClearCr Clear Creek
+       CollgCr College Creek
+       Crawfor 克劳福德
+       Edwards 爱德华兹
+       Gilbert 吉尔伯特
+       Greens 绿党
+       GrnHill Green Hills
+       IDOTRR 爱荷华州DOT和铁路
+       Landmrk 地标
+       MeadowV 草甸村
+       Mitchel 米切尔
+       Names 北艾姆斯
+       NoRidge 北岭
+       NPkVill Northpark Villa
+       NridgHt Northridge Heights
+       NWAmes 西北艾姆斯
+       OldTown 旧城区
+       SWISU 爱荷华州立大学南部和西部
+       Sawyer 索耶
+       SawyerW Sawyer West
+       Somerst 萨默塞特
+       StoneBr Stone Brook
+       Timber land的木材
+       Veenker 维恩克
+
+Condition 1 (Nominal)：接近各种条件
+
+       Artery 毗邻主干道
+       Feedr 邻近馈线街
+       Norm 标准
+       RRNn 在南北铁路的200'范围内
+       RRAn 毗邻南北铁路
+       PosN 近正面场外功能 - 公园，绿地等
+       PosA 毗邻积极的场外功能
+       RRNe 东西铁路200'以内
+       RRAe 毗邻东西铁路
+
+Condition 2 (Nominal)：接近各种条件（如果存在多个条件）
+
+       Artery 毗邻主干道
+       Feedr 邻近馈线街
+       规范 标准
+       RRNn 在南北铁路的200'范围内
+       RRAn 毗邻南北铁路
+       PosN 近正面场外功能 - 公园，绿地等
+       PosA 毗邻积极的场外功能
+       RRNe 东西铁路200'以内
+       RRAe 毗邻东西铁路
+
+Bldg Type（Nominal）：住宅类型
+
+       1Fam单户独立式
+       2FmCon双族转换;最初是作为一个家庭住宅建造的
+       DUPLX复式
+       TwnhsE联排别墅结束单位
+       TwnhsI Townhouse Inside Unit
+
+House Style (Nominal)：住宅风格
+
+       1Story 一个故事
+       1.5Fin 一个半故事：第二级完成
+       1.5Unf 一个半故事：二级未完成
+       2Story 两个故事
+       2.5Fin 两个半故事：第二级完成
+       2.5Unf 两个半故事：二级未完成
+       SFoyer Split Foyer
+       SLvl 分层
+
+Overall Qual (Ordinal)：评估房屋的整体材料和完工情况
+
+       10 非常好
+       9 优良
+       8 非常好
+       7 良好的
+       6 高于平均水平
+       5 平均
+       4 低于平均水平
+       3 博览会
+       2 差
+       1 很差
+
+Overall Cond (Ordinal)：评估房屋的整体状况
+
+       10 非常好
+       9 优良
+       8 非常好
+       7 良好的
+       6 高于平均水平
+       5 平均
+       4 低于平均水平
+       3 博览会
+       2 差
+       1 很差
+
+Year Built (Discrete): 原始施工日期
+
+Year Remod/Add (Discrete)：重新构建日期（如果没有重新构建或添加，则与施工日期相同）
+
+Roof Style (Nominal)：屋顶类型
+
+       Flat 扁
+       Gable 山墙
+       Gambrel Gabrel（谷仓）
+       Hip
+       Mansard 芒萨尔
+       Shed 棚
+
+Roof Matl (Nominal)：屋顶材料
+
+       ClyTile 粘土或瓷砖
+       CompShg 标准（复合）木瓦
+       MEMBRAN 膜
+       Metal 金属
+       Roll 辊
+       Tar&Grv Gravel＆Tar
+       WdShake Wood Shakes
+       WdShngl Wood Shingles
+
+Exterior 1 (Nominal)：房屋外墙
+
+       AsbShng Asbestos Shingles
+       AsphShn Asphalt Shingles
+       BrkComm 砖常见
+       BrkFace 砖面
+       CBlock Cinder Block
+       CemntBd 水泥板
+       HdBoard 硬板
+       ImStucc 仿制灰泥
+       MetalSd 金属壁板
+       Other 其他
+       Plywood 胶合板
+       PreCast 预制
+       Stone 石材
+       Stucco 粉刷
+       VinylSd 乙烯基壁板
+       Wd Sdng Wood Siding
+       WdShing Wood Shingles
+
+Exterior 2 (Nominal)：房屋外墙（如果有多种材料）
+
+       AsbShng Asbestos Shingles
+       AsphShn Asphalt Shingles
+       BrkComm 砖常见
+       BrkFace 砖面
+       CBlock Cinder Block
+       CemntBd 水泥板
+       HdBoard 硬板
+       ImStucc 仿制灰泥
+       MetalSd 金属壁板
+       Other 其他
+       Plywood 胶合板
+       PreCast 预制
+       Stone 石材
+       Stucco 粉刷
+       VinylSd 乙烯基壁板
+       Wd Sdng Wood Siding
+       WdShing Wood Shingles
+
+Mas Vnr Type（Nominal）：砌体贴面类型
+
+       BrkCmn Brick Common
+       BrkFac 砖面
+       CBlock Cinder Block
+       None 无
+       Stone 石材
+
+Mas Vnr Area（Continuous）：砌体单板面积，平方英尺
+
+Exter Qual（Ordinal）：评估外部材料的质量
+
+       Ex 优秀
+       Gd 好
+       TA 平均/典型
+       Fa 持平
+       Po 可怜
+
+Exter Cond（Ordinal）：评估外部材料的现状
+
+       Ex 优秀
+       Gd 好
+       TA 平均/典型
+       Fa 持平
+       Po 可怜 
+
+Foundation (Nominal)：基金会的类型
+
+       BrkTil Brick＆Tile
+       CBlock Cinder Block
+       PConc Poured Contrete
+       Slab 坯板
+       Stone 石材
+       Wood 木材
+
+Bsmt Qual（Ordinal）：评估地下室的高度
+
+       Ex 优秀（100+英寸）
+       Gd Good（90-99英寸）
+       TA 典型（80-89英寸）
+       Fa Fair（70-79英寸）
+       Po 差（<70英寸
+       NA 没有地下室
+
+Bsmt Cond（Ordinal）：评估地下室的一般情况
+
+       Ex 优秀
+       Gd 好
+       TA 典型 - 允许轻微潮湿
+       Fa Fair  - 潮湿或有些开裂或沉淀
+       Po 差 - 严重的开裂，沉淀或潮湿
+       NA 没有地下室
+
+Bsmt Exposure (Ordinal)：指罢工或花园水平的墙壁
+
+       Gd 良好的曝光
+       Av 平均曝光率（分割级别或门厅通常得分平均值或以上）
+       Mn 最小暴露量
+       No 没有曝光
+       NA 没有地下室
+
+BsmtFin Type 1（Ordinal）：地下室成品面积的等级
+
+       GLQ Good Living Quarters
+       ALQ 平均生活区
+       BLQ 低于平均生活区
+       Rec Rec Rec Room
+       LwQ 低质量
+       UNF Unfinshed
+       NA 没有地下室
+
+BsmtFin SF 1 (Continuous)：1型成品平方英尺
+
+BsmtFinType 2 (Ordinal)：地下室成品区域的评级（如果有多种类型）
+
+       GLQ Good Living Quarters
+       ALQ 平均生活区
+       BLQ 低于平均生活区
+       Rec Rec Rec Room
+       LwQ 低质量
+       UNF Unfinshed
+       NA 没有地下室
+
+BsmtFin SF 2 (Continuous)：2型成品平方英尺
+
+Bsmt Unf SF (Continuous)：未完成的地下室平方英尺
+
+Total Bsmt SF (Continuous)：地下室总面积
+
+Heating (Nominal)：加热类型
+
+       Floor 地板炉
+       GasA Gas强制加热空气炉
+       GasW Gas热水或蒸汽加热
+       Grav 重力炉
+       OthW 除了气体之外的热水或蒸汽加热
+       Wall 壁挂炉
+
+HeatingQC (Ordinal)：加热质量和条件
+
+       Ex 优秀
+       Gd 好
+       TA 平均/典型
+       Fa 持平
+       Po 可怜
+
+Central Air (Nominal)：中央空调
+
+       N 无
+       y 有
+
+Electrical (Ordinal)：电气系统
+
+       SBrkr 标准断路器和Romex
+       FuseA 保险丝盒超过60 AMP和所有Romex接线（平均）
+       FuseF 60 AMP保险丝盒和大多数Romex接线（公平）
+       FuseP 60 AMP保险丝盒，主要是旋钮和管接线（差）
+       Mix 混合型
+
+1st Flr SF (Continuous)：一楼平方英尺
+ 
+2nd Flr SF (Continuous)：二楼平方英尺
+
+Low Qual Fin SF (Continuous): 低质量成品平方英尺（所有楼层）
+
+Gr Liv Area (Continuous)：以上（地面）生活区平方英尺
+
+Bsmt Full Bath (Discrete): 地下室齐全的浴室
+
+Bsmt Half Bath (Discrete)：地下室半浴室
+
+Full Bath (Discrete)：高档以上的浴室
+
+Half Bath (Discrete)：半浴以上
+
+Bedroom (Discrete)：高于卧室的卧室（不包括地下室卧室）
+
+Kitchen (Discrete)：厨房以上
+
+KitchenQual（Ordinal）：厨房品质
+
+       Ex 优秀
+       Gd 好
+       TA 典型/平均
+       Fa 持平
+       Po 可怜
+       
+TotRmsAbvGrd  (Discrete)：高于评分的客房总数（不包括浴室）
+
+Functional (Ordinal)：家庭功能（假设除非有必要进行扣除）
+
+       Typ 典型功能
+       Min1 次要扣除1
+       Min2 次要扣除2
+       Mod Moderate Deductions
+       Maj1 主要扣减1
+       Maj2 主要扣减2
+       Sev 严重受损
+       Sal 抢修
+
+Fireplaces（Discrete）：壁炉数量
+
+FireplaceQu（Ordinal）：壁炉质量
+
+       Ex Excellent  - 特殊的砌体壁炉
+       Gd Good  - 主层的砌体壁炉
+       TA 平均 - 主要生活区的预制壁炉或地下室的砌体壁炉
+       Fa Fair  - 地下室的预制壁炉
+       Po Poor  -  Ben Franklin Stove
+       NA 没有壁炉
+
+Garage Type (Nominal)：车库位置
+
+       2Types 多种类型的车库
+       Attchd 附在家里
+       Basment 地下室车库
+       BuiltIn Built-In（车库的一部分 - 通常在车库上方有房间）
+       CarPort 汽车港口
+       Detchd 离家出走
+       NA 没有车库
+
+车库Yr Blt（离散）：年车库建成
+
+车库完工（序数）：车库的内部装饰
+
+       成品翅
+       RFn粗糙完成
+       UNF未完成
+       NA没有车库
+
+车库汽车（离散）：汽车容量的车库大小
+
+车库面积（连续）：车库的面积（平方英尺）
+
+Garage Qual（Ordinal）：车库质量
+
+       防爆优秀
+       钆好
+       TA典型/平均
+       发展
+       可怜的宝
+       NA没有车库
+
+Garage Cond（Ordinal）：车库状况
+
+       防爆优秀
+       钆好
+       TA典型/平均
+       发展
+       可怜的宝
+       NA没有车库
+
+Paved Drive（Ordinal）：铺设的车道
+
+       ÿ铺
+       P部分路面
+       Ñ脏物/碎石
+
+木甲板SF（连续）：木甲板面积，平方英尺
+
+开放式门廊SF（连续）：平方英尺的开放式门廊区域
+
+封闭式门廊（连续）：封闭式门廊面积，平方英尺
+
+3-Ssn门廊（连续）：三个季节的门廊面积，平方英尺
+
+屏幕门廊（连续）：屏幕门廊面积，平方英尺
+
+泳池区（连续）：泳池面积（平方英尺）
+
+Pool QC（Ordinal）：泳池质量
+
+       防爆优秀
+       钆好
+       TA平均/典型
+       发展
+       NA没有游泳池
+
+栅栏（序数）：栅栏质量
+
+       GdPrv良好的隐私
+       MnPrv最低隐私权
+       GdWo Good Wood
+       MnWw最小木材/线材
+       NA没有围栏
+
+其他功能（标称）：其他类别未涵盖其他功能
+
+       海拔电梯
+       Gar2第二车库（如果没有在车库部分描述）
+       超视距雷达其他
+       棚棚（超过100 SF）
+       TenC网球场
+       NA无
+
+Misc Val（连续）：$杂项功能的价值
+
+Mo已售（离散）：已售出月份（MM）
+
+年出售（离散）：已售出年（YYYY）
+
+销售类型（标称）：销售类型
+
+       WD保修契约 - 常规
+       CWD保修契约 - 现金
+       VWD保修契约 -  VA贷款
+       新房刚刚建成并出售
+       COD法院官员契约/遗产
+       Con Contract 15％首付常规条款
+       合同低首付和低利息
+       ConLI合约低利率
+       ConLD合约低跌
+       OTH其他
+
+销售条件（标称）：销售条件
+
+       正常正常销售
+       Abnorml异常销售 - 贸易，丧失抵押品赎回权，卖空
+       调整和毗邻土地购买
+       Alloca Allocation  - 两个相互关联的属性，具有独立的行为，通常是带有车库单元的公寓
+       家庭成员之间的家庭销售
+       部分住宅在上次评估时未完成（与新住宅相关）
+
+SalePrice（连续）：促销价$$
+
+特别说明：
+在将数据提供给学生之前，教师可能希望从数据集中删除5个观察结果（销售价格与GR LIV AREA的图表将很快指示它们）。其中三个是真正的异常值（部分销售可能不代表实际的市场价值），其中两个只是不寻常的销售（非常大的房子定价相对适当）。我建议在将数据集分配给学生之前，从数据集中删除任何超过4000平方英尺的房屋（这将消除这5个不寻常的观察结果）。
+
+数据背后的故事：
+该数据集的构建是为了本科回归课程的学期项目结束。原始数据（直接从Ames评估办公室获得）用于税收评估，但直接用于预测房屋销售价格。数据中包含的信息类型与典型购房者在购买之前想要了解的信息类似，学生应该发现大多数变量简单易懂。
+
+教学笔记：
+不熟悉多元回归的教师可能希望将此数据集与早期的JSE论文结合使用，该论文回顾了回归建模中发现的大多数主要问题：
+
+Kuiper，S。（2008），“多元回归简介：你的汽车价值多少？”，统计教育期刊第16卷，第3期（2008年）。
+
+除了本文讨论的与多元回归相关的一般问题之外，这个特定的数据集提供了几个机会来讨论模型的目的如何影响完成的建模类型。此数据的用户可能还想查看与房地产定价直接相关的另一篇JSE文章：
+
+Pardoe，I。（2008），“使用房地产经纪人数据建模房屋价格”，统计教育期刊第16卷，第2期（2008年）。
+
+一个问题是关于同方差性和假设违规。文章中包含的图表似乎表明异方差性随着销售价格的变化而增加，并且这个问题在许多简单的家庭定价模型中很明显，这些模型仅关注房屋和批量。虽然可以通过转换响应变量（销售价格）来缓解这种违规行为，但是得到的等式产生难以解释的拟合值（以对数或平方根美元出售的价格）。这种情况使教师有机会谈论不纠正这种假设违规的成本（偏倚的估计量，不正确的统计测试等）和好处（易用性）。如果建立模型的目的仅仅是让典型的买方或房地产经纪人坐下来估计房屋的售价，那么这种转变对于手头的任务可能是不必要的或不适当的。这个问题也可以讨论数据挖掘，预测模型和正式统计推断之间的对比和比较。
+
+与模型的预期用途密切相关的第二个问题是处理异常值和异常观察。总的来说，我指示我的学生永远不要丢弃数据点，因为它们与先验期望（或其他数据点）不匹配。在为了研究目的而分析数据的情况下，我强烈地指出了这一点，这些数据将与更多的受众共享。或者，如果目的是再次创建一个共同使用模型来估计“典型”销售，那么删除任何看似不典型的观察（例如取消抵押品赎回权或家庭销售）符合建模者的最佳利益。
+
+参考文献：
+数据集中的各个住宅可以通过数据集中的包裹ID（PID）直接从Ames City Assessor网页引用。请注意，这些是名义值（非数字），因此前面的0必须包含在网站的数据输入字段中。通过点击“房产搜索”或访问Beacon（http://beacon.schneidercorp.com/Default），可以从Ames网站（http://www.cityofames.org/assessor/）获取对数据库的访问权限。 aspx）网站并在适当的领域输入爱荷华州和艾姆斯。 Ames网站上还提供了显示所有社区位置的城市地图，点击“地图”，然后点击“住宿评估社区（仅限艾姆市）”即可访问。
+
+由...所提交：
+Dean De Cock
+杜鲁门州立大学
+100 E. Normal St.，Kirksville，MO，63501
+decock@truman.edu
