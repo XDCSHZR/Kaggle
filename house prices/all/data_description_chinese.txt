@@ -440,109 +440,109 @@ Garage Type (Nominal)：车库位置
        Detchd 离家出走
        NA 没有车库
 
-车库Yr Blt（离散）：年车库建成
+Garage Yr Blt (Discrete)：年车库建成
 
-车库完工（序数）：车库的内部装饰
+Garage Finish (Ordinal)：车库的内部装饰
 
        成品翅
        RFn粗糙完成
        UNF未完成
        NA没有车库
 
-车库汽车（离散）：汽车容量的车库大小
+Garage Cars (Discrete)：汽车容量的车库大小
 
-车库面积（连续）：车库的面积（平方英尺）
+Garage Area (Continuous)：车库的面积（平方英尺）
 
 Garage Qual（Ordinal）：车库质量
 
-       防爆优秀
-       钆好
-       TA典型/平均
-       发展
-       可怜的宝
-       NA没有车库
+       Ex 优秀
+       Gd 好
+       TA 典型/平均
+       Fa 持平
+       Po 可怜
+       NA 没有车库
 
 Garage Cond（Ordinal）：车库状况
 
-       防爆优秀
-       钆好
-       TA典型/平均
-       发展
-       可怜的宝
-       NA没有车库
+       Ex 优秀
+       Gd 好
+       TA 典型/平均
+       Fa 持平
+       Po 可怜
+       NA 没有车库
 
 Paved Drive（Ordinal）：铺设的车道
 
-       ÿ铺
-       P部分路面
-       Ñ脏物/碎石
+       Y 铺
+       P 部分路面
+       N 脏物/碎石
 
-木甲板SF（连续）：木甲板面积，平方英尺
+Wood Deck SF (Continuous)：木甲板面积，平方英尺
 
-开放式门廊SF（连续）：平方英尺的开放式门廊区域
+Open Porch SF (Continuous)：平方英尺的开放式门廊区域
 
-封闭式门廊（连续）：封闭式门廊面积，平方英尺
+Enclosed Porch (Continuous)：封闭式门廊面积，平方英尺
 
-3-Ssn门廊（连续）：三个季节的门廊面积，平方英尺
+3-Ssn Porch (Continuous)：三个季节的门廊面积，平方英尺
 
-屏幕门廊（连续）：屏幕门廊面积，平方英尺
+Screen Porch (Continuous)：屏幕门廊面积，平方英尺
 
-泳池区（连续）：泳池面积（平方英尺）
+Pool Area (Continuous)：泳池面积（平方英尺）
 
 Pool QC（Ordinal）：泳池质量
 
-       防爆优秀
-       钆好
-       TA平均/典型
-       发展
-       NA没有游泳池
+       Ex 优秀
+       Gd 好
+       TA 平均/典型
+       Fa 持平
+       NA 没有游泳池
 
-栅栏（序数）：栅栏质量
+Fence (Ordinal)：栅栏质量
 
-       GdPrv良好的隐私
-       MnPrv最低隐私权
+       GdPrv 良好的隐私
+       MnPrv 最低隐私权
        GdWo Good Wood
-       MnWw最小木材/线材
-       NA没有围栏
+       MnWw 最小木材/线材
+       NA 没有围栏
 
-其他功能（标称）：其他类别未涵盖其他功能
+Misc Feature (Nominal)：其他类别未涵盖其他功能
 
-       海拔电梯
-       Gar2第二车库（如果没有在车库部分描述）
-       超视距雷达其他
-       棚棚（超过100 SF）
-       TenC网球场
-       NA无
+       Elev 电梯
+       Gar2 第二车库（如果没有在车库部分描述）
+       Othr 其他
+       Shed 棚（超过100 SF）
+       TenC 网球场
+       NA 无
 
-Misc Val（连续）：$杂项功能的价值
+Misc Val (Continuous)：$杂项功能的价值
 
-Mo已售（离散）：已售出月份（MM）
+Mo Sold (Discrete)：已售出月份（MM）
 
-年出售（离散）：已售出年（YYYY）
+Yr Sold (Discrete)：已售出年（YYYY）
 
-销售类型（标称）：销售类型
+Sale Type (Nominal)：销售类型
 
-       WD保修契约 - 常规
-       CWD保修契约 - 现金
-       VWD保修契约 -  VA贷款
-       新房刚刚建成并出售
-       COD法院官员契约/遗产
+       WD 保修契约 - 常规
+       CWD 保修契约 - 现金
+       VWD 保修契约 -  VA贷款
+       New 刚刚建成并出售的房
+       COD 法院官员契约/遗产
        Con Contract 15％首付常规条款
-       合同低首付和低利息
-       ConLI合约低利率
-       ConLD合约低跌
-       OTH其他
+       ConLw 合同低首付和低利息
+       ConLI 合约低利率
+       ConLD 合约低跌
+       Oth 其他
 
-销售条件（标称）：销售条件
+Sale Condition (Nominal)：销售条件
 
-       正常正常销售
-       Abnorml异常销售 - 贸易，丧失抵押品赎回权，卖空
-       调整和毗邻土地购买
+       Normal 正常销售
+       Abnorml 异常销售 - 贸易，丧失抵押品赎回权，卖空
+       AdjLand 毗邻土地购买
        Alloca Allocation  - 两个相互关联的属性，具有独立的行为，通常是带有车库单元的公寓
-       家庭成员之间的家庭销售
-       部分住宅在上次评估时未完成（与新住宅相关）
+       Family 家庭成员之间的销售
+       Partial 住宅在上次评估时未完成（与新住宅相关）
 
-SalePrice（连续）：促销价$$
+SalePrice (Continuous)：促销价$$
 
 特别说明：
 在将数据提供给学生之前，教师可能希望从数据集中删除5个观察结果（销售价格与GR LIV AREA的图表将很快指示它们）。其中三个是真正的异常值（部分销售可能不代表实际的市场价值），其中两个只是不寻常的销售（非常大的房子定价相对适当）。我建议在将数据集分配给学生之前，从数据集中删除任何超过4000平方英尺的房屋（这将消除这5个不寻常的观察结果）。
