@@ -62,7 +62,7 @@ Alley (Nominal)：通往物业的胡同类型
 
 Lot Shape (Ordinal)：属性的一般形状
 
-       定期 注册
+       Reg 注册
        IR1 稍微不规则
        IR2 中度不规则
        IR3 不规则
@@ -142,7 +142,7 @@ Condition 2 (Nominal)：接近各种条件（如果存在多个条件）
 
        Artery 毗邻主干道
        Feedr 邻近馈线街
-       规范 标准
+       Norm 标准
        RRNn 在南北铁路的200'范围内
        RRAn 毗邻南北铁路
        PosN 近正面场外功能 - 公园，绿地等
@@ -152,10 +152,10 @@ Condition 2 (Nominal)：接近各种条件（如果存在多个条件）
 
 Bldg Type（Nominal）：住宅类型
 
-       1Fam单户独立式
-       2FmCon双族转换;最初是作为一个家庭住宅建造的
-       DUPLX复式
-       TwnhsE联排别墅结束单位
+       1Fam 单户独立式
+       2FmCon 双族转换;最初是作为一个家庭住宅建造的
+       DUPLX 复式
+       TwnhsE 联排别墅结束单位
        TwnhsI Townhouse Inside Unit
 
 House Style (Nominal)：住宅风格
