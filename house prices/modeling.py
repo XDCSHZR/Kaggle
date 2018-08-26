@@ -509,6 +509,7 @@ if __name__ == '__main__':
     print('Stacking...')
     # 2.1
     # base model: ['ENet', 'SVR', 'GBR', 'RFR'], meta model: ['lasso'], score: 0.12057812824120848, train score: 0.0887370671205139
+    print('1...')
 #    best_score_StackingModel1 = 0.12057812824120848
     Stacking_baseModels1 = [clf_ENet, clf_SVR, clf_GBR, clf_RFR]
     Stacking_metaModel1 = clf_lasso
@@ -525,6 +526,7 @@ if __name__ == '__main__':
     clf_StackingModel1_pred = np.expm1(clf_StackingModel1.predict(test.values))
     # 2.2
     # base model: ['XGB', 'LGB'], meta model: ['lasso'], score: 0.11865598269019988, train score: 0.04958425010628377
+    print('2...')
 #    best_score_StackingModel2 = 0.11865598269019988
     Stacking_baseModels2 = [clf_XGB, clf_LGB]
     Stacking_metaModel2 = clf_lasso
@@ -536,7 +538,8 @@ if __name__ == '__main__':
     clf_StackingModel2_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel2_train_pred)
     clf_StackingModel2_pred = np.expm1(clf_StackingModel2.predict(test.values))
     # 2.3
-    # base model: ['Lasso', 'ENet', 'GBR', ‘RFR’, 'XGB', 'LGB'], meta model: ['SVR'(C=1, gamma=0.1)], score: 0.11550945897743095, train score: 0.08033983764024206, public score: 
+    # base model: ['Lasso', 'ENet', 'GBR', ‘RFR’, 'XGB', 'LGB'], meta model: ['SVR'(C=1, gamma=0.1)], score: 0.11550945897743095, train score: 0.08033983764024206, public score: 0.11817
+    print('3...')
     best_score_StackingModel3 = 0.11550945897743095
     Stacking_baseModels3 = [clf_lasso, clf_ENet, clf_GBR, clf_RFR, clf_XGB, clf_LGB]
     clf_SVR_ = make_pipeline(RobustScaler(), SVR(kernel='rbf', C=1, gamma=0.1))
@@ -561,7 +564,8 @@ if __name__ == '__main__':
     clf_StackingModel3_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel3_train_pred)
     clf_StackingModel3_pred = np.expm1(clf_StackingModel3.predict(test.values))
     # 2.4
-    # base model: ['Lasso', 'SVR', 'GBR', ‘RFR’, 'XGB', 'LGB'], meta model: ['ENet'(alpha=0.01, l1_ratio=0.1)], score: 0.11811114614985727, train score: 0.06922726070085473, public score:
+    # base model: ['Lasso', 'SVR', 'GBR', ‘RFR’, 'XGB', 'LGB'], meta model: ['ENet'(alpha=0.01, l1_ratio=0.1)], score: 0.11811114614985727, train score: 0.06922726070085473, public score: 0.12024
+    print('4...')
     best_score_StackingModel4 = 0.11811114614985727
     Stacking_baseModels4 = [clf_lasso, clf_SVR, clf_GBR, clf_RFR, clf_XGB, clf_LGB]
     clf_ENet_ = make_pipeline(RobustScaler(), ElasticNet(alpha=0.01, l1_ratio=0.1, random_state=3))
@@ -586,7 +590,8 @@ if __name__ == '__main__':
     clf_StackingModel4_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel4_train_pred)
     clf_StackingModel4_pred = np.expm1(clf_StackingModel4.predict(test.values))
     # 2.5
-    # base model: ['ENet', 'SVR', 'GBR', ‘RFR’, 'XGB', 'LGB'], meta model: ['Lasso'], score: 0.11923497284557014, train score: 0.06842306233023925, public score:
+    # base model: ['ENet', 'SVR', 'GBR', ‘RFR’, 'XGB', 'LGB'], meta model: ['Lasso'], score: 0.11923497284557014, train score: 0.06842306233023925, public score: 0.11966
+    print('5...')
 #    best_score_StackingModel5 = 0.11923497284557014
     Stacking_baseModels5 = [clf_ENet, clf_SVR, clf_GBR, clf_RFR, clf_XGB, clf_LGB]
     Stacking_metaModel5 = clf_lasso
@@ -598,7 +603,9 @@ if __name__ == '__main__':
     clf_StackingModel5_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel5_train_pred)
     clf_StackingModel5_pred = np.expm1(clf_StackingModel5.predict(test.values))
     # 2.6
-    # base model: ['Lasso', 'SVR', 'GBR', ‘RFR’, 'XGB'], meta model: ['ENet'(alpha=0.01, l1_ratio=0.1)], score: 0.11825146130286805, train score: 0.06639642983267827, public score:
+    # base model: ['Lasso', 'SVR', 'GBR', ‘RFR’, 'XGB'], meta model: ['ENet'(alpha=0.01, l1_ratio=0.1)], score: 0.11825146130286805, train score: 0.06639642983267827
+    print('6...')
+#    best_score_StackingModel6 = 0.11825146130286805
     Stacking_baseModels6 = [clf_lasso, clf_SVR, clf_GBR, clf_RFR, clf_XGB]
     Stacking_metaModel6 = clf_ENet_
     clf_StackingModel6 = StackingModel(Stacking_baseModels6, Stacking_metaModel6)
@@ -609,7 +616,9 @@ if __name__ == '__main__':
     clf_StackingModel6_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel6_train_pred)
     clf_StackingModel6_pred = np.expm1(clf_StackingModel6.predict(test.values))
     # 2.7
-    # base model: ['Lasso', 'SVR', 'GBR', ‘RFR’, 'LGB'], meta model: ['ENet'(alpha=0.01, l1_ratio=0.1)], score: 0.11894598587080747, train score: 0.0822414172530027, public score:
+    # base model: ['Lasso', 'SVR', 'GBR', ‘RFR’, 'LGB'], meta model: ['ENet'(alpha=0.01, l1_ratio=0.1)], score: 0.11894598587080747, train score: 0.0822414172530027
+    print('7...')
+#    best_score_StackingModel7 = 0.11894598587080747
     Stacking_baseModels7 = [clf_lasso, clf_SVR, clf_GBR, clf_RFR, clf_LGB]
     Stacking_metaModel7 = clf_ENet_
     clf_StackingModel7 = StackingModel(Stacking_baseModels7, Stacking_metaModel7)
@@ -620,7 +629,9 @@ if __name__ == '__main__':
     clf_StackingModel7_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel7_train_pred)
     clf_StackingModel7_pred = np.expm1(clf_StackingModel7.predict(test.values))
     # 2.8
-    # base model: ['Lasso', 'ENet', 'GBR', ‘RFR’, 'XGB'], meta model: ['SVR'(C=1, gamma=0.1)], score: 0.11557097693596033, train score: 0.07900910024393099, public score:
+    # base model: ['Lasso', 'ENet', 'GBR', ‘RFR’, 'XGB'], meta model: ['SVR'(C=1, gamma=0.1)], score: 0.11557097693596033, train score: 0.07900910024393099, public score: 0.11772
+    print('8...')
+#    best_score_StackingModel8 = 0.11557097693596033
     Stacking_baseModels8 = [clf_lasso, clf_ENet, clf_GBR, clf_RFR, clf_XGB]
     Stacking_metaModel8 = clf_SVR_
     clf_StackingModel8 = StackingModel(Stacking_baseModels8, Stacking_metaModel8)
@@ -631,7 +642,9 @@ if __name__ == '__main__':
     clf_StackingModel8_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel8_train_pred)
     clf_StackingModel8_pred = np.expm1(clf_StackingModel8.predict(test.values))
     # 2.9
-    # base model: ['Lasso', 'ENet', 'GBR', ‘RFR’, 'LGB'], meta model: ['SVR'(C=1, gamma=0.1)], score: 0.11566773107286785, train score: 0.08865962795734818, public score:
+    # base model: ['Lasso', 'ENet', 'GBR', ‘RFR’, 'LGB'], meta model: ['SVR'(C=1, gamma=0.1)], score: 0.11566773107286785, train score: 0.08865962795734818
+    print('9...')
+#    best_score_StackingModel9 = 0.11566773107286785
     Stacking_baseModels9 = [clf_lasso, clf_ENet, clf_GBR, clf_RFR, clf_LGB]
     Stacking_metaModel9 = clf_SVR_
     clf_StackingModel9 = StackingModel(Stacking_baseModels9, Stacking_metaModel9)
@@ -641,10 +654,21 @@ if __name__ == '__main__':
     clf_StackingModel9_train_pred = clf_StackingModel9.predict(train.values)
     clf_StackingModel9_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel9_train_pred)
     clf_StackingModel9_pred = np.expm1(clf_StackingModel9.predict(test.values))
+    # 2.10
+    # base model: ['Lasso', 'ENet', 'GBR', 'RFR'], meta model: ['SVR'(C=1, gamma=0.1)], score: 0.11625654887068426, train score: 0.09238241694531721
+    print('10...')
+#    best_score_StackingModel10 = 
+    Stacking_baseModels10 = [clf_lasso, clf_ENet, clf_GBR, clf_RFR]
+    Stacking_metaModel10 = clf_SVR_
+    clf_StackingModel10 = StackingModel(Stacking_baseModels10, Stacking_metaModel10)
+    score_clf_StackingModel10 = rmsle_cv(clf_StackingModel10, 5, train.values, y_train.values.ravel())
+    best_score_StackingModel10 = score_clf_StackingModel10.mean()
+    clf_StackingModel10.fit(train.values, y_train.values.ravel())
+    clf_StackingModel10_train_pred = clf_StackingModel10.predict(train.values)
+    clf_StackingModel10_train_score = rmsle_all(y_train.values.ravel(), clf_StackingModel10_train_pred)
+    clf_StackingModel10_pred = np.expm1(clf_StackingModel10.predict(test.values))
     
     joblib.dump(clf_StackingModel8, "train_model_Stacking8.m")
-    joblib.dump(clf_StackingModel9, "train_model_Stacking9.m")
-    
     
     # 3.Averaging(Stacking model + improved model, Stacking model + Stacking model)
     print('Averaging...')
@@ -670,18 +694,32 @@ if __name__ == '__main__':
     averaging3_train_weighted_score = rmsle_all(y_train.values.ravel(), np.average(averaging3_train_predictions, axis=1, weights=predictions3_weights))
     averaging3_weighted_pred = np.average(averaging3_predictions, axis=1, weights=predictions3_weights)
     # 3.4
-    # 'model': 'clf_StackingModel8', 'clf_StackingModel9'; 'weights':0.5, 0.5; train score: 0.08085084711447492, public score: 0.11783
+    # 'model': 'clf_StackingModel8', 'clf_StackingModel9'; 'weights':0.95, 0.05; train score: 0.07946492755647053, public score: 0.11774
     averaging4_train_predictions = np.column_stack([clf_StackingModel8_train_pred, clf_StackingModel9_train_pred])
     averaging4_predictions = np.column_stack([clf_StackingModel8_pred, clf_StackingModel9_pred])
-    predictions4_weights = [0.8, 0.2]
+    predictions4_weights = [0.95, 0.05]
     averaging4_train_weighted_score = rmsle_all(y_train.values.ravel(), np.average(averaging4_train_predictions, axis=1, weights=predictions4_weights))
     averaging4_weighted_pred = np.average(averaging4_predictions, axis=1, weights=predictions4_weights)
+    # 3.5
+    # 'model': 'clf_StackingModel8', 'LGB'; 'weights':0.8, 0.2; train score: 0.07681143800855632, public score: 0.11744
+    averaging5_train_predictions = np.column_stack([clf_StackingModel8_train_pred, clf_LGB_train_pred])
+    averaging5_predictions = np.column_stack([clf_StackingModel8_pred, clf_LGB_pred])
+    predictions5_weights = [0.8, 0.2]
+    averaging5_train_weighted_score = rmsle_all(y_train.values.ravel(), np.average(averaging5_train_predictions, axis=1, weights=predictions5_weights))
+    averaging5_weighted_pred = np.average(averaging5_predictions, axis=1, weights=predictions5_weights)
+    # 3.6
+    # 'model': 'clf_StackingModel10', 'XGB', 'LGB'; 'weights':0.6, 0.15, 0.25; train score: 0.07551698230640294, public score: 0.11817
+    averaging6_train_predictions = np.column_stack([clf_StackingModel10_train_pred, clf_XGB_train_pred, clf_LGB_train_pred])
+    averaging6_predictions = np.column_stack([clf_StackingModel10_pred, clf_XGB_pred, clf_LGB_pred])
+    predictions6_weights = [0.7, 0.15, 0.15]
+    averaging6_train_weighted_score = rmsle_all(y_train.values.ravel(), np.average(averaging6_train_predictions, axis=1, weights=predictions6_weights))
+    averaging6_weighted_pred = np.average(averaging6_predictions, axis=1, weights=predictions6_weights)
     
     #-------------------------------提交结果------------------------------------
     print('Submission...')
     submission = pd.DataFrame()
     submission['Id'] = old_test['Id']
-    submission['SalePrice'] = averaging2_weighted_pred
+    submission['SalePrice'] = averaging5_weighted_pred
     submission.to_csv('submission.csv', index=False)
 
 
