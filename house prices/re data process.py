@@ -112,9 +112,6 @@ def check_dist(train_temp):
 check_dist(train)
 # 取对数使目标变量满足正态分布，原目标变量存在偏度
 train['SalePrice'] = np.log1p(train['SalePrice'])
-# 标准正态
-#x = StandardScaler()
-#train['SalePrice'] = x.fit_transform(train['SalePrice'].reshape(-1, 1))
 check_dist(train)
 
 # 合并数据集
@@ -133,7 +130,7 @@ features_obj_miss = ['Alley', 'BsmtQual', 'BsmtCond', 'BsmtExposure', 'BsmtFinTy
 feature_Garage = 'GarageType'
 feature_Garage_num_miss_sp = 'GarageYrBlt'
 feature_Garage_num_miss = ['GarageArea', 'GarageCars']
-feature_Bsmt = 'BsmtQual';
+feature_Bsmt = 'BsmtQual'
 feature_Bsmt_num_miss = ['BsmtFinSF1', 'BsmtFinSF2', 'BsmtUnfSF','TotalBsmtSF', 'BsmtFullBath', 'BsmtHalfBath']
 # 处理字符型“伪缺失值”
 for e in features_obj_miss:
@@ -298,16 +295,23 @@ le = LabelEncoder()
 le.fit(list(all_data[features_le_sp].values))
 all_data[features_le_sp] = le.transform(list(all_data[features_le_sp].values))
 size_mapping = {}
-for i in range(0, len(all_data['MSSubClass'].unique())):
+for i in range(0, len(all_data[features_le_sp].unique())):
     size_mapping[i] = str(i)
     
 all_data[features_le_sp] = all_data[features_le_sp].map(size_mapping)
 
-# 添加新特征：“总面积”=“一层”+“二层”
-all_data['TotalSF'] = all_data['1stFlrSF'] + all_data['2ndFlrSF']
+# 添加新特征：“总面积”=“地下室”+“一层”+“二层”
+all_data['TotalSF'] = all_data['TotalBsmtSF'] + all_data['1stFlrSF'] + all_data['2ndFlrSF']
 
 # 对字符型的特征进行哑编码（不含顺序信息）
 new_all_data = pd.get_dummies(all_data)
+
+# 对数据进行标准化/归一化
+features_proc = new_all_data.dtypes.index.values
+# 对数据进行归一化
+new_all_data[features_proc] = new_all_data[features_proc].apply(lambda x:(x-x.min())/(x.max()-x.min()))
+# 对数据进行标准化
+#new_all_data[features_proc] = new_all_data[features_proc].apply(lambda x:(x-x.mean())/(x.std()))
 
 # ------------------------------数据处理结果存储--------------------------------
 new_train = new_all_data[:train.shape[0]]
@@ -315,5 +319,5 @@ train_label = train['SalePrice']
 y_train = pd.DataFrame({'SalePrice': train_label})
 new_test = new_all_data[train.shape[0]:]
 new_train.to_csv('train.csv', index=False)
-y_train.to_csv('y_train.csv', index=False)
 new_test.to_csv('test.csv', index=False)
+y_train.to_csv('y_train.csv', index=False)
