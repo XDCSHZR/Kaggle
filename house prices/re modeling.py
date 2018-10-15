@@ -73,8 +73,8 @@ if __name__ == '__main__':
     # 'alpha':0.001, score:0.1176647811479667, train score:0.10970698333903418
     clf_Lasso = make_pipeline(RobustScaler(), Lasso(alpha=0.001, random_state=1))
     best_score_Lasso = 0.1176647811479667
-#    best_score_lasso = float('inf');
-#    best_para_lasso = {};
+#    best_score_lasso = float('inf')
+#    best_para_lasso = {}
 #    for a in [0.0005, 0.001, 0.01, 0.1, 1, 10, 100]:
 #        clf_lasso = make_pipeline(RobustScaler(), Lasso(alpha=a, random_state=1))
 #        score_clf_lasso = rmsle_cv(clf_lasso, 5, train.values, y_train.values.ravel())
@@ -99,8 +99,8 @@ if __name__ == '__main__':
     # 'alpha':0.01, 'l1_ratio':0.1, score:0.1176541333679045, train score:0.11013515984679859
     clf_ENet = make_pipeline(RobustScaler(), ElasticNet(alpha=0.01, l1_ratio=0.1, random_state=3))
     best_score_ENet = 0.1176541333679045
-#    best_score_ENet = float('inf');
-#    best_para_ENet = {};
+#    best_score_ENet = float('inf')
+#    best_para_ENet = {}
 #    for a in [0.0005, 0.001, 0.01, 0.1, 1, 10, 100]:
 #        for l1r in [i/10.0 for i in range(1, 10)]:
 #            clf_ENet = make_pipeline(RobustScaler(), ElasticNet(alpha=a, l1_ratio=l1r, random_state=3))
@@ -123,8 +123,8 @@ if __name__ == '__main__':
     # 'C':1, 'gamma':0.01, score:0.2214320818153098, train score:0.08947125069713543
     clf_SVR = make_pipeline(RobustScaler(), SVR(kernel='rbf', C=1, gamma=0.01)) 
     best_score_SVR = 0.2214320818153098
-#    best_score_SVR = float('inf');
-#    best_para_SVR = {};
+#    best_score_SVR = float('inf')
+#    best_para_SVR = {}
 #    for c in [0.01, 0.5, 0.1, 1, 5, 10, 100]:
 #        for g in np.logspace(-2, 2, 5):
 #            clf_SVR = make_pipeline(RobustScaler(), SVR(kernel='rbf', C=c, gamma=g))
@@ -148,8 +148,8 @@ if __name__ == '__main__':
     clf_GBR = make_pipeline(RobustScaler(), GradientBoostingRegressor(n_estimators=500, learning_rate=0.1, max_depth=4, max_features='sqrt', 
                             min_samples_leaf=30, min_samples_split=50, loss='huber', random_state=5))
     best_score_GBR = 0.1181680032634042
-#    best_score_GBR_1 = float('inf');
-#    best_para_GBR_1 = {};
+#    best_score_GBR_1 = float('inf')
+#    best_para_GBR_1 = {}
 #    for ne in range(100, 1100, 100):
 #        clf_GBR_1 = make_pipeline(RobustScaler(), GradientBoostingRegressor(n_estimators=ne, learning_rate=0.1, max_depth=4, max_features='sqrt', 
 #                                  min_samples_leaf=15, min_samples_split=50, loss='huber', random_state=5))
@@ -162,8 +162,8 @@ if __name__ == '__main__':
 #    
 #    # 'n_estimators':500, score:0.11959521167349499
 #    
-#    best_score_GBR_2 = float('inf');
-#    best_para_GBR_2 = {};
+#    best_score_GBR_2 = float('inf')
+#    best_para_GBR_2 = {}
 #    for md in range(3, 6):
 #        for mss in range(50, 100, 10):
 #            for msl in range(10, 40, 10):
@@ -192,8 +192,8 @@ if __name__ == '__main__':
     clf_RFR = make_pipeline(RobustScaler(), RandomForestRegressor(n_estimators=1800, max_depth=5, max_features='sqrt', 
                             min_samples_leaf=10, min_samples_split=50, random_state=7))
     best_score_RFR = 0.1718004443413196
-#    best_score_RFR_1 = float('inf');
-#    best_para_RFR_1 = {};
+#    best_score_RFR_1 = float('inf')
+#    best_para_RFR_1 = {}
 #    for ne in range(100, 2100, 100):
 #        clf_RFR_1 = make_pipeline(RobustScaler(), RandomForestRegressor(n_estimators=ne, max_depth=4, max_features='sqrt', 
 #                                  min_samples_leaf=15, min_samples_split=50, random_state=7))
@@ -206,8 +206,8 @@ if __name__ == '__main__':
 #    
 #    # 'n_estimators':1800, score:0.182019313675976
 #    
-#    best_score_RFR_2 = float('inf');
-#    best_para_RFR_2 = {};
+#    best_score_RFR_2 = float('inf')
+#    best_para_RFR_2 = {}
 #    for md in range(3, 6):
 #        for mss in range(50, 100, 10):
 #            for msl in range(10, 40, 10):
@@ -236,8 +236,8 @@ if __name__ == '__main__':
     clf_XGB = make_pipeline(RobustScaler(), xgb.XGBRegressor(colsample_bytree=0.5, gamma=0.0, learning_rate=0.1, max_depth=4, min_child_weight=3, n_estimators=2000, 
                             reg_alpha=0.001, reg_lambda=1, subsample=0.6, silent=1, random_state=9))
     best_score_XGB = 0.11832497642250632
-#    best_score_XGB_1 = float('inf');
-#    best_para_XGB_1 = {};
+#    best_score_XGB_1 = float('inf')
+#    best_para_XGB_1 = {}
 #    for ne in range(100, 3000, 100):
 #        clf_XGB_1 = make_pipeline(RobustScaler(), xgb.XGBRegressor(colsample_bytree=0.8, gamma=0.1, learning_rate=0.1, max_depth=4, min_child_weight=2, n_estimators=ne, 
 #                                  reg_alpha=0.5, reg_lambda=0.5, subsample=0.8, silent=1, random_state=9))
@@ -249,9 +249,9 @@ if __name__ == '__main__':
 #            best_para_XGB_1 = {'n_estimators': ne}
 #    
 #     # 'n_estimators':2000, score:0.12320212008164114
-#    best_para_XGB_1 = {'n_estimators': 2000}
-#    best_score_XGB_2 = float('inf');
-#    best_para_XGB_2 = {};
+#
+#    best_score_XGB_2 = float('inf')
+#    best_para_XGB_2 = {}
 #    for md in range(3, 6):
 #        for mcw in range(1, 6):
 #            clf_XGB_2 = make_pipeline(RobustScaler(), xgb.XGBRegressor(colsample_bytree=0.8, gamma=0.1, learning_rate=0.1, max_depth=md, min_child_weight=mcw, n_estimators=best_para_XGB_1['n_estimators'], 
@@ -265,8 +265,8 @@ if __name__ == '__main__':
 #    
 #    # 'max_depth':4, 'min_child_weight':3, score:0.12107877034852185
 #    
-#    best_score_XGB_3 = float('inf');
-#    best_para_XGB_3 = {};
+#    best_score_XGB_3 = float('inf')
+#    best_para_XGB_3 = {}
 #    for g in [i/10.0 for i in range(0, 6)]:
 #        clf_XGB_3 = make_pipeline(RobustScaler(), xgb.XGBRegressor(colsample_bytree=0.8, gamma=g, learning_rate=0.1, max_depth=best_para_XGB_2['max_depth'], min_child_weight=best_para_XGB_2['min_child_weight'], n_estimators=best_para_XGB_1['n_estimators'], 
 #                                  reg_alpha=0.5, reg_lambda=0.5, subsample=0.8, silent=1, random_state=9))
@@ -279,8 +279,8 @@ if __name__ == '__main__':
 #    
 #    # 'gamma':0.0, score:0.12095040013901592
 #    
-#    best_score_XGB_4 = float('inf');
-#    best_para_XGB_4 = {};
+#    best_score_XGB_4 = float('inf')
+#    best_para_XGB_4 = {}
 #    for ss in [i/10.0 for i in range(5, 10)]:
 #        for cb in [i/10.0 for i in range(5, 10)]:
 #            clf_XGB_4 = make_pipeline(RobustScaler(), xgb.XGBRegressor(colsample_bytree=cb, gamma=best_para_XGB_3['gamma'], learning_rate=0.1, max_depth=best_para_XGB_2['max_depth'], min_child_weight=best_para_XGB_2['min_child_weight'], n_estimators=best_para_XGB_1['n_estimators'], 
@@ -294,8 +294,8 @@ if __name__ == '__main__':
 #                
 #    # 'subsample':0.6, 'colsample_bytree':0.5, score:0.12015979179052268
 #    
-#    best_score_XGB_5 = float('inf');
-#    best_para_XGB_5 = {};
+#    best_score_XGB_5 = float('inf')
+#    best_para_XGB_5 = {}
 #    for ra in [0, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 10]:
 #        for rl in [0, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 10]:
 #            clf_XGB_5 = make_pipeline(RobustScaler(), xgb.XGBRegressor(colsample_bytree=best_para_XGB_4['colsample_bytree'], gamma=best_para_XGB_3['gamma'], learning_rate=0.1, max_depth=best_para_XGB_2['max_depth'], min_child_weight=best_para_XGB_2['min_child_weight'], n_estimators=best_para_XGB_1['n_estimators'], 
@@ -324,8 +324,8 @@ if __name__ == '__main__':
     clf_LGB = make_pipeline(RobustScaler(), lgb.LGBMRegressor(objective='regression', max_depth=3, num_leaves=5, learning_rate=0.1, n_estimators=200, max_bin=70, bagging_fraction=0.8, bagging_freq=5, 
                             feature_fraction=0.5, feature_fraction_seed=11, bagging_seed=11, min_data_in_leaf=5, lambda_l1=0.005, lambda_l2=10))
     best_score_LGB = 0.119115960382797
-#    best_score_LGB_1 = float('inf');
-#    best_para_LGB_1 = {};
+#    best_score_LGB_1 = float('inf')
+#    best_para_LGB_1 = {}
 #    for ne in range(100, 1100, 100):
 #        clf_LGB_1 = make_pipeline(RobustScaler(), lgb.LGBMRegressor(objective='regression', max_depth=4, num_leaves=10, learning_rate=0.1, n_estimators=ne, max_bin=50, bagging_fraction=0.8, bagging_freq=5, 
 #                                  feature_fraction=0.8, feature_fraction_seed=11, bagging_seed=11, min_data_in_leaf=10, lambda_l1=0.5, lambda_l2=0.5))
@@ -338,8 +338,8 @@ if __name__ == '__main__':
 #    
 #    # 'n_estimators':200, score:0.12369471248001158
 #    
-#    best_score_LGB_2 = float('inf');
-#    best_para_LGB_2 = {};
+#    best_score_LGB_2 = float('inf')
+#    best_para_LGB_2 = {}
 #    for md in range(3, 6):
 #        for nl in range(md, 2**md):
 #            clf_LGB_2 = make_pipeline(RobustScaler(), lgb.LGBMRegressor(objective='regression', max_depth=md, num_leaves=nl, learning_rate=0.1, n_estimators=best_para_LGB_1['n_estimators'], max_bin=50, bagging_fraction=0.8, bagging_freq=5, 
@@ -353,8 +353,8 @@ if __name__ == '__main__':
 #                
 #    # 'max_depth':3, 'num_leaves':5, score:0.12208503445224332
 #    
-#    best_score_LGB_3 = float('inf');
-#    best_para_LGB_3 = {};
+#    best_score_LGB_3 = float('inf')
+#    best_para_LGB_3 = {}
 #    for mb in range(5, 100, 5):
 #        for mdil in range(5, 55, 5):
 #            clf_LGB_3 = make_pipeline(RobustScaler(), lgb.LGBMRegressor(objective='regression', max_depth=best_para_LGB_2['max_depth'], num_leaves=best_para_LGB_2['num_leaves'], learning_rate=0.1, n_estimators=best_para_LGB_1['n_estimators'], max_bin=mb, bagging_fraction=0.8, bagging_freq=5, 
@@ -368,8 +368,8 @@ if __name__ == '__main__':
 #    
 #    # 'max_bin':95, 'min_data_in_leaf':5, score:0.11997429370758113
 #    
-#    best_score_LGB_4 = float('inf');
-#    best_para_LGB_4 = {};
+#    best_score_LGB_4 = float('inf')
+#    best_para_LGB_4 = {}
 #    for ff in [i/10.0 for i in range(5, 10)]:
 #        for bfr in [i/10.0 for i in range(5, 10)]:
 #            for bfre in range(0, 55, 5):
@@ -384,8 +384,8 @@ if __name__ == '__main__':
 #                    
 #    # 'feature_fraction':0.5, 'bagging_fraction':0.7, 'bagging_freq':10, score:0.11940541566426943
 #    
-#    best_score_LGB_5 = float('inf');
-#    best_para_LGB_5 = {};
+#    best_score_LGB_5 = float('inf')
+#    best_para_LGB_5 = {}
 #    for ll1 in [0, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 10]:
 #        for ll2 in [0, 0.001, 0.005, 0.01, 0.05, 0.1, 0.5, 1, 10]:
 #            clf_LGB_5 = make_pipeline(RobustScaler(), lgb.LGBMRegressor(objective='regression', max_depth=best_para_LGB_2['max_depth'], num_leaves=best_para_LGB_2['num_leaves'], learning_rate=0.1, n_estimators=best_para_LGB_1['n_estimators'], max_bin=best_para_LGB_3['max_bin'], bagging_fraction=best_para_LGB_4['bagging_fraction'], bagging_freq=best_para_LGB_4['bagging_freq'], 
@@ -417,8 +417,8 @@ if __name__ == '__main__':
     best_score_StackingModel1 = 0.11262637486925065
     Stacking_baseModels1 = [clf_Lasso, clf_ENet, clf_GBR, clf_RFR, clf_XGB, clf_LGB]
     clf_SVR_ = make_pipeline(RobustScaler(), SVR(kernel='rbf', C=1, gamma=0.1))
-#    best_score_StackingModel1 = float('inf');
-#    best_para_StackingModel1_SVR = {};
+#    best_score_StackingModel1 = float('inf')
+#    best_para_StackingModel1_SVR = {}
 #    for c in [0.01, 0.5, 0.1, 1, 5, 10, 100]:
 #        for g in np.logspace(-2, 2, 5):
 #            clf_SVR_ = make_pipeline(RobustScaler(), SVR(kernel='rbf', C=c, gamma=g))
