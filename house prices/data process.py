@@ -17,6 +17,7 @@ from sklearn.preprocessing import StandardScaler
 from scipy.special import boxcox1p
 from sklearn.preprocessing import LabelEncoder
 
+# 一般参数设置
 def ignore_warn(*args, **kwargs):
     pass
 
@@ -25,32 +26,28 @@ sns.set_style('darkgrid')
 warnings.warn = ignore_warn
 pd.set_option('display.float_format', lambda x: '{:.3f}'.format(x))
 
+# 读取数据
 train = pd.read_csv('all/train.csv')
 test = pd.read_csv('all/test.csv')
 
+# ------------------------------特征工程----------------------------------------
 # 删除Id
-train_Id = train['Id']
-test_Id = test['Id']
 train.drop('Id', axis=1, inplace=True)
 test.drop('Id', axis=1, inplace=True)
 
-
-# 离群点（不处理，尽量使模型更鲁棒）
+# 按照数据描述，删除面积>4000的离群点，其它有可能的离群点不处理，尽量使模型更鲁棒
 def check_outliers(train_temp):
     fig, ax = plt.subplots()
     ax.scatter(x=train_temp['GrLivArea'], y=train_temp['SalePrice'])
-#    ax.scatter(x=train_temp['LotArea'], y=train_temp['SalePrice'])
     plt.ylabel('SalePirce', fontsize=13)
     plt.xlabel('GrLivArea', fontsize=13)
-#    plt.xlabel('LotArea', fontsize=13)
     plt.show()
 
 check_outliers(train)
-newtrain1 = train.drop(train[(train['GrLivArea']>4000)&(train['SalePrice']<300000)].index)
-check_outliers(newtrain1)
+train = train.drop(train[(train['GrLivArea']>4000)&(train['SalePrice']<300000)].index)
+check_outliers(train)
 
-
-# 目标变量
+# 目标变量处理
 def check_dist(train_temp):
     sns.distplot(train_temp['SalePrice'], fit=norm)
     (mu, sigma) = norm.fit(train_temp['SalePrice'])
@@ -66,19 +63,18 @@ check_dist(train)
 train['SalePrice'] = np.log1p(train['SalePrice'])
 # 标准正态
 #x = StandardScaler()
-#newtrain2['SalePrice'] = x.fit_transform(newtrain2['SalePrice'].reshape(-1, 1))
+#train['SalePrice'] = x.fit_transform(train['SalePrice'].reshape(-1, 1))
 check_dist(train)
 
-# 特征工程----------------------------------------------------------------------
 # 训练数据（含“SalePirce”）的特征相关系数（数值型）
 corrmat = train.corr()
 plt.subplots(figsize=(15,12))
 sns.heatmap(corrmat, vmax=0.9, square=True)
+
 # 合并数据集
 all_data = pd.concat((train, test)).reset_index(drop=True)
 all_data.drop('SalePrice', axis=1, inplace=True)
 shape_all_data = all_data.shape
-
 
 # 处理缺失值
 def check_miss(data_temp):
@@ -142,10 +138,11 @@ miss_data_after = check_miss(all_data)
 
 # Label Encoding，便于处理偏度，在顺序上可能有信息
 cols = ('FireplaceQu', 'BsmtQual', 'BsmtCond', 'GarageQual', 'GarageCond', 
-        'ExterQual', 'ExterCond','HeatingQC', 'PoolQC', 'KitchenQual', 'BsmtFinType1', 
-        'BsmtFinType2', 'Functional', 'Fence', 'BsmtExposure', 'GarageFinish', 'LandSlope',
-        'LotShape', 'PavedDrive', 'Street', 'Alley', 'CentralAir', 'MSSubClass', 'OverallCond', 
-        'YrSold', 'MoSold')
+        'ExterQual', 'ExterCond', 'HeatingQC', 'PoolQC', 'KitchenQual', 
+        'BsmtFinType1', 'BsmtFinType2', 'Functional', 'Fence', 'BsmtExposure', 
+        'GarageFinish', 'LandSlope', 'LotShape', 'PavedDrive', 'Street', 
+        'Alley', 'CentralAir', 'MSSubClass', 'OverallCond', 'YrSold', 
+        'MoSold')
 for c in cols:
     lbl = LabelEncoder() 
     lbl.fit(list(all_data[c].values)) 
@@ -153,7 +150,6 @@ for c in cols:
 
 # 添加新特征：“总面积”=“地下室”+“一层”+“二层”
 all_data['TotalSF'] = all_data['TotalBsmtSF'] + all_data['1stFlrSF'] + all_data['2ndFlrSF']
-
 
 # 数据偏度处理
 def check_skew(data_temp):
@@ -170,10 +166,10 @@ for feat in skewed_features:
     all_data[feat] = boxcox1p(all_data[feat], lam)
 skewness_after = check_skew(all_data)
 
-# 哑编码
+# 对其它字符型的特征进行哑编码
 new_all_data = pd.get_dummies(all_data)
 
-# 存储处理后的全部数据
+# ------------------------------数据处理结果存储--------------------------------
 new_train = new_all_data[:train.shape[0]]
 train_label = train['SalePrice']
 y_train = pd.DataFrame({'SalePrice': train_label})
@@ -181,34 +177,3 @@ new_test = new_all_data[train.shape[0]:]
 new_train.to_csv('train.csv', index=False)
 y_train.to_csv('y_train.csv', index=False)
 new_test.to_csv('test.csv', index=False)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
